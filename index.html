@@ -100,6 +100,10 @@
         left: 0;
       }
 
+      h1.text {
+        padding: 40px;
+      }
+
       @-webkit-keyframes spin {
         from {
           -webkit-transform: rotateY(0deg);
@@ -479,6 +483,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.show-container {
+  display: block;
+}
+
+.hide-container {
+  display: none;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -747,9 +759,9 @@ ion-icon[name="snow-outline"] {
   </head>
 
   <body>
-
+    <div id="loader" class="center"></div>
     <div class="container" style="display: none;">
-      <h1 class="text">The New Year Is Coming Soon!</h1>
+      <h1 class="text">Cùng Điếm Ngược CountDown Chúc Mừng Năm Mới 2023</h1>
       <div id="countdown">
         <div class="circle" style="--clr: #ff4c4c;">
           <svg>
@@ -848,7 +860,7 @@ ion-icon[name="snow-outline"] {
     
 
 <div class="block_happy_new_year" style="display: none;" >
-  <div class="feliz">Happy new year</div>
+  <div class="feliz">Happy new year 2023</div>
   <div class="ano_novo">
     <span>202</span>
     <span class="seis">2</span>
@@ -992,6 +1004,18 @@ ion-icon[name="snow-outline"] {
 
     
     </style>
+
+    <script>
+      document.onreadystatechange = function() {
+          if (document.readyState !== "complete") {
+              document.querySelector("body").style.visibility = "hidden";
+          } else {
+              setTimeout(() => {
+                document.querySelector("body").style.visibility = "visible";
+              }, 1000);
+          }
+      };
+    </script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -1158,7 +1182,7 @@ let wishDays = 10;
 
 let x = setInterval(function () {
   let currentYear = new Date().getFullYear();
-  let newYear = new Date(`Dec 30, ${currentYear} 00:13:00`);
+  let newYear = new Date(`Jan 1, ${currentYear + 1} 00:00:00`);
   let now = new Date().getTime();
   let distance = newYear - now;
 
@@ -1294,7 +1318,8 @@ help.onclick = function() {
   }
 }
 
-
 </script>
+
+
   </body>
 </html>
