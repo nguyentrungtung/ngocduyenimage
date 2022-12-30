@@ -96,7 +96,7 @@
 
       #music-container {
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
       }
 
@@ -723,11 +723,22 @@ ion-icon[name="snow-outline"] {
   #countdown div {
     font-size: 1.25em;
   }
+
+  #music-container {
+    position: absolute;
+    bottom: 0 !important;
+    left: 0;
+  }
 }
 
 @media screen and (max-width: 300px) {
   .text {
-    font-size: 25px;
+    font-size: 20px;
+  }
+  #music-container {
+    position: absolute;
+    bottom: 0 !important;
+    left: 0;
   }
 }
 
@@ -995,7 +1006,7 @@ ion-icon[name="snow-outline"] {
 
       // Link of background music - set 'null' if you dont want to play background music
       var bgMusicURL =
-        "https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a";
+        "Why-Dont-We-Love Song.mp3";
       var bgMusicControls = true; // Show UI music control
 
       /*
@@ -1071,9 +1082,8 @@ ion-icon[name="snow-outline"] {
       if (bgMusicURL) {
         document.getElementById("music-container").innerHTML += `
 <audio src="${bgMusicURL}" ${
-          bgMusicControls ? "controls" : ""
-        } autoplay loop>    
-<p>If you are reading this, it is because your browser does not support the audio element.</p>
+          bgMusicControls ? "controls autoplay" : ""
+        } autoplay loop>
 </audio>
 `;
       }
